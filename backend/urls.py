@@ -19,10 +19,12 @@ from django.urls import path, include
 from rest_framework import routers
 
 from backend.users import views as user_views
+from backend.gyms import views as gym_views
 
 router = routers.DefaultRouter()
 router.register(r'users', user_views.UserViewSet)
 router.register(r'groups', user_views.GroupViewSet)
+router.register(r'gyms', gym_views.GymViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
