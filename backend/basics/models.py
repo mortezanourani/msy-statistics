@@ -4,9 +4,26 @@ class Gender(models.Model):
     name = models.CharField(max_length=50)
     gender = models.CharField(max_length=50)
 
-class Province(models.Model):
-    name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name + " [" + self.gender + "]"
+
 
 class City(models.Model):
     name = models.CharField(max_length=200)
-    province = models.ForeignKey(Province, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
+class Building_Ownership(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class License_Ownership(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name

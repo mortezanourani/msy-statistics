@@ -20,11 +20,16 @@ from rest_framework import routers
 
 from backend.users import views as user_views
 from backend.gyms import views as gym_views
+from backend.basics import views as basic_views
 
 router = routers.DefaultRouter()
 router.register(r'users', user_views.UserViewSet)
 router.register(r'groups', user_views.GroupViewSet)
 router.register(r'gyms', gym_views.GymViewSet)
+router.register(r'basics/cities', basic_views.CityViewSet)
+router.register(r'basics/genders', basic_views.GenderViewSet)
+router.register(r'basics/buildings/ownerships', basic_views.BuildingOwnershipViewSet)
+router.register(r'basics/licenses/ownerships', basic_views.LicenseOwnershipViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
